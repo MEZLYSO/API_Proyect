@@ -1,0 +1,21 @@
+{
+  "name": "api_proyect",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "bun run ./src/index.ts",
+    "buil": "bun run tsc",
+    "start": "bun run ./build/index.js"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@types/express": "^5.0.1",
+    "express": "^5.1.0"
+  }
+}
