@@ -4,9 +4,8 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "bun run ./src/index.ts",
-    "buil": "bun run tsc",
-    "start": "bun run ./build/index.js"
+    "dev": "bun --hot run ./src/index.ts",
+    "start": "bun run tsc && bun run ./build/index.js"
   },
   "devDependencies": {
     "@types/bun": "latest"
@@ -16,6 +15,8 @@
   },
   "dependencies": {
     "@types/express": "^5.0.1",
-    "express": "^5.1.0"
+    "@types/mysql": "^2.15.27",
+    "express": "^5.1.0",
+    "mysql2": "^3.14.1"
   }
 }
