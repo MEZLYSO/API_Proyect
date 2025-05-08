@@ -40,6 +40,20 @@ class userController {
       sendError(res, err.message);
     }
   }
+
+  async deleteUser(req: Request, res: Response) {
+    try {
+      const id = Number(req.params["id"]);
+      const deleted = await userService.deleteUser(id);
+      if (deleted) {
+        sendSucess(res, {});
+      } else {
+        sendError(res, "User not found");
+      }
+    } catch (err: any) {
+      sendError(res, err.message);
+    }
+  }
 }
 
 export default new userController();

@@ -20,13 +20,21 @@ class userService {
 
   async postUser(data: User) {
     const result = await db.query<ResultSetHeader>(
-      "INSERT INTO users (name, surname1, surname2) VALUES ?",
-      [[[data.name, data.surname1, data.surname2]]],
+      "INSERT INTO users (name, surname1, surname2, rfid) VALUES ?",
+      [[[data.name, data.surname1, data.surname2, data.rfid]]],
     );
     if (result.insertId) {
       return await this.getUser(result.insertId);
     }
     return null;
+  }
+
+  async deleteUser(id: number): Promise<Boolean> {
+    const user = await db.query<ResultSetHeader>(
+      "DELETE FROM users WHERE id = ?",
+      id,
+    );
+    return user.affectedRows > 0;
   }
 }
 
